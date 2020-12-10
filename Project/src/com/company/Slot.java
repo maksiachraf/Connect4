@@ -1,12 +1,17 @@
 package com.company;
 
 public class Slot {
-    int status;
-
+    private int status;
 
     Slot(int status) {
         this.status = status;
     }
 
+    int getStatus() {
+        return status;
+    }
 
+    void setStatus(int status) {
+        this.status = status;
+    }
 }

@@ -1,24 +1,22 @@
 
 package com.company;
 
-import java.io.*;
 public class Game {
+    private Player p1;
+    private Player p2;
+    private Grid grid;
+    int rounds;
 
-    Player p1;
-    Player p2;
-    Grid G;
+
+public Game(int x,int y,int rounds) {
+   grid=new Grid(x,y);
+   this.rounds=rounds;
 
 }
 
-   /* public static void main(String[] args) {
-       try {
+public void starGame() {
 
-       }
-       catch(IOException ioe) {
-           System.out.println("IO Exception raised");
-       }
-        System.out.print("end");
-
-    }
 }
-*/
+
+}
+

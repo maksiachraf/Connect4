@@ -1,29 +1,39 @@
 package com.company;
 
 
-import org.jetbrains.annotations.NotNull;
-
 public class Grid {
 
-private int x;
-private int y;
-Column[] cols;
+    private final int x;
+    private final int y;
+    private Column[] cols;
 
-Grid(int x, int y) {
-    this.x=x;
-    this.y=y;
-    this.cols=new Column[this.x];
-}
-
-void initializeGrid(@NotNull Grid G) {
-    for (int i = 0; i <G.x ; i++) {
-        G.cols[i]=new Column(G.y);
-        G.cols[i].initializeColumn(G.y);
+    public Grid(int x, int y) {
+        this.x = x;
+        this.y = y;
+        cols = new Column[y];
     }
-}
 
-void updateGrid(int nbCol,int status) {
-    this.cols[nbCol].fillColumn(status);
-}
+    public void initializeGrid() {
+        for (int i = 0; i < y; i++) {
+            cols[i] = new Column(x);
+            cols[i].initializeColumn();
+        }
+    }
 
+    public void updateGrid(int nbCol, int status) {
+        cols[nbCol].fillColumn(status);
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+
+    public int getSlot(int x, int y) {
+        return cols[x].getSlot(y);
+    }
 }

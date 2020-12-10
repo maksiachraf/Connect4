@@ -2,27 +2,29 @@ package com.company;
 
 public class Column {
     private int lastOcc;
-    private int length;
-    Slot[] slots;
+    private final int length;
+    private Slot[] slots;
 
     Column(int length) {
-        this.lastOcc=0;
+        lastOcc=length-1;
         this.length=length;
-        this.slots=new Slot[length];
+        slots=new Slot[length];
     }
 
-    void initializeColumn(int length) {
-        this.length=length;
+    int getSlot(int x) {
+            return slots[x].getStatus();
+}
+
+    void initializeColumn() {
         for (int i = 0; i < length; i++) {
             this.slots[i]=new Slot(0);
         }
     }
 
-    public void fillColumn(int status) {
-        int curr_pos=this.lastOcc;
-        this.slots[curr_pos].status=status;
-        this.lastOcc++;
+    void fillColumn(int status) {
+        int curr_pos=lastOcc;
+        slots[curr_pos].setStatus(status);
+        lastOcc--;
     }
-
 
 }
