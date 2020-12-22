@@ -1,5 +1,7 @@
-package com.company;
+package com.elements;
 
+import com.company.*;
+import com.elements.*;
 
 public class Grid {
 
@@ -19,6 +21,23 @@ public class Grid {
             cols[i].initializeColumn();
         }
     }
+    public Boolean colFull(int a) {
+        return cols[a].colFull();
+    }
+
+    public Boolean gridFull() {
+        Boolean value=true;
+        for (int i = 0; i < y; i++) {
+            value = value && cols[i].colFull();
+        }
+        return value;
+    }
+
+    public void reInitializeGrid() {
+        for (int i = 0; i < y; i++) {
+            cols[i].reInitializeColumn();
+        }
+    }
 
     public void updateGrid(int nbCol, int status) {
         cols[nbCol].fillColumn(status);
@@ -32,6 +51,9 @@ public class Grid {
         return y;
     }
 
+    public int getLastOcc(int y) {
+        return cols[y].getLastOcc();
+    }
 
     public int getSlot(int x, int y) {
         return cols[x].getSlot(y);

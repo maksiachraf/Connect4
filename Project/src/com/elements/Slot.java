@@ -1,17 +1,21 @@
 package com.company;
 
+import com.company.*;
+import com.elements.*;
+
+
 public class Slot {
     private int status;
 
-    Slot(int status) {
+    public Slot(int status) {
         this.status = status;
     }
 
-    int getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    void setStatus(int status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 }
